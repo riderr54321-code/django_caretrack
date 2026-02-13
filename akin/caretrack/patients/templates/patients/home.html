@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+<a href="/add/" class="btn btn-success mb-3">Add Patient</a>
+<table class="table table-bordered table-hover">
+<tr>
+  <th>Name</th><th>Age</th><th>Gender</th><th>Phone</th><th>Diagnosis</th><th>Action</th>
+</tr>
+{% for p in patients %}
+<tr>
+  <td>{{p.name}}</td>
+  <td>{{p.age}}</td>
+  <td>{{p.gender}}</td>
+  <td>{{p.phone}}</td>
+  <td>{{p.diagnosis}}</td>
+  <td>
+    <a href="/edit/{{p.id}}/" class="btn btn-warning btn-sm">Edit</a>
+    <a href="/delete/{{p.id}}/" class="btn btn-danger btn-sm">Delete</a>
+  </td>
+</tr>
+{% endfor %}
+</table>
+{% endblock %}
